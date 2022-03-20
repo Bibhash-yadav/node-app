@@ -2,14 +2,15 @@ const http = require('http');
 const port = process.env.PORT || 3000
 
 const httpServer = http.createServer((req, res) => {
-    if (req.uri === '/') {
+    console.log(req.url);
+    if (req.url === '/') {
         res.setHeader("Content-Type", "application/json");
         res.writeHead(200);
         res.end(JSON.stringify({
             Messgae: `Welcome to Techxtor free api. Fetch details: /api/details`,
         }));
     }
-    else if (req.uri === '/api/details') {
+    else if (req.url === '/api/details') {
         res.setHeader("Content-Type", "application/json");
         res.writeHead(200);
         res.end(JSON.stringify({
